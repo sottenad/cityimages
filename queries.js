@@ -6,7 +6,8 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-//var connectionString = 'postgres://localhost:5432/puppies';
+
+var db;
 var cn = {
   host: 'localhost',
   port: 5432,
@@ -14,7 +15,14 @@ var cn = {
   user: 'SteveO',
   password: 'stepheno'
 }
-var db = pgp(cn);
+
+if(process.env.DATABASE_URL){
+  pgp.pg.defaults.ssl = true;
+  var db = pgp(process.env.DATABASE_URL);
+}else{
+  var db = pgp(cn);
+}
+
 
 // add query functions
 
