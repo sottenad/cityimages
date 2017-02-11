@@ -1,0 +1,28 @@
+<div class="col-sm-8">
+Add a city
+<form>
+    <label>Name</label>
+    <input type="text" id="name" name="name"/> <br />
+    <label>latitude</label>
+    <input type="text" id="lat" name="lat"/><br />
+    <label>longitude</label>
+    <input type="text" id="long" name="long" /><br />
+    <label>image</label>
+    <input type="file" id="image-input" name="image-input" /><br />
+    <input type="hidden" id="image-url" name="image-url" value="/images/default.jpg">
+    <img id="preview" style="height:200px" src="/images/default.jpg">
+    <a id="submit">Submit</a>
+</form>
+</div>
+<div class="col-sm-4">
+    <ul>
+    {{#each data}}
+        <li>{{name}}</li>
+    {{/each}}
+    </ul>
+</div>
+
+<script src="/javascripts/upload-helpers.js"></script>
+<script src="/javascripts/add.js"></script>
+
+
